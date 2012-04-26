@@ -25,7 +25,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="6" selection-start="2059" selection-end="2059" vertical-scroll-proportion="0.36666667">
+            <state line="28" column="41" selection-start="2548" selection-end="2548" vertical-scroll-proportion="0.38518518">
               <folding />
             </state>
           </provider>
@@ -118,12 +118,12 @@
         <option value="$PROJECT_DIR$/html5.html" />
         <option value="$PROJECT_DIR$/Capfile" />
         <option value="$PROJECT_DIR$/style.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/model.js" />
         <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/copymeter.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/stopwords.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -417,7 +417,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="6" selection-start="2059" selection-end="2059" vertical-scroll-proportion="0.36666667">
+        <state line="28" column="41" selection-start="2548" selection-end="2548" vertical-scroll-proportion="0.38518518">
           <folding />
         </state>
       </provider>
