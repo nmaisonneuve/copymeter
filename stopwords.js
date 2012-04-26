@@ -43,11 +43,11 @@ String.prototype.parseSentences=function(callback) {
         var filtered_words=[];
         var sentence_idx=0;
         for (var i=0; i<words.length;i++){
-            var filtered=words[i].replace(/[\(\)'",:;”“\t]/g,"").trim();
+            var filtered=words[i].replace(/[\(\)'",:;”“\t]/g,"").replace(/\.$/,"").trim();
             if (!String.isStopWord(filtered.toLowerCase())){
                 filtered_words.push(filtered);
             }
-            if (filtered.isLastWord()){
+            if (filtered.isLastWord() || (i==(words.length-1)) ){
                 var raw=words.slice(start_idx,i+1).join(" ");
                 callback(sentence_idx,raw, filtered_words);
                 start_idx=i+1;

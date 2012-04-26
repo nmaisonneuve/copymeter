@@ -20,7 +20,7 @@ process_result = function (data, sentence) {
     //console.log("------------ new sentence: "+sentence.content);
     // compute each sentence in each result
     $.each(data, function (i, result) {
-        var content = result.content.replace(/(\.\.\.) ([A-Z])/g, ". $2").replace("...", "").replace(/<b>|<\/b>/, "").concat("."); // clean a bit if required
+        var content = result.content.replace(/(\.\.\.) ([A-Z])/g, ". $2").replace("...", "").replace(/<b>|<\/b>/, ""); // clean a bit if required
         var source = {score:0, content:"", url:result.url};
        // console.log("new result: "+content);
         content.parseSentences(function (i, text, words) {

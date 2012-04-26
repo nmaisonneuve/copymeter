@@ -1,13 +1,28 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+set :user, 'newhouse'
+set :domain, 'dev.fabelier.org'
+set :application, "copymeter"
+set :applicationdir, "~/copymeter"
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+set :repository, "git://github.com/nmaisonneuve/copymeter.git"  # Your clone URL
+set :scm, "git"
+set :scm_verbose, true
+set :git_enable_submodules, 1
+
+# roles (servers)
+role :web, domain
+role :app, domain
+role :db, domain, :primary=>true
+
+# deploy config
+set :deploy_to, applicationdir
+set :deploy_via, :remote_cache
+set :use_sudo, false
+
+
+default_run_options[:pty] = true  # Must be set for the password prompt from git to work
+ssh_options[:forward_agent] = true
+
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
