@@ -43,9 +43,9 @@ String.prototype.parseSentences=function(callback) {
         var filtered_words=[];
         var sentence_idx=0;
         for (var i=0; i<words.length;i++){
-            var filtered=words[i].replace(/[\(\)'",:;”“\t]/g,"").replace(/\.$/,"").trim();
+            var filtered=words[i].replace(/[\(\)'",:;”“\t]/g,"").trim();
             if (!String.isStopWord(filtered.toLowerCase())){
-                filtered_words.push(filtered);
+                filtered_words.push(filtered.replace(/\.$/,""));
             }
             if (filtered.isLastWord() || (i==(words.length-1)) ){
                 var raw=words.slice(start_idx,i+1).join(" ");
