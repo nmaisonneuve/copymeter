@@ -1,0 +1,116 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>CopyMeter</title>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="span12" style="margin-top:20px;text-align: center">
+            <h1>CopyMeter</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <div id="text_container" class="span6" style="margin:0 auto;float:none;">
+                <textarea rows="10" class="span6" id="text"> Beethoven wrote his own early compositions in the shadow of
+                    Mozart, and Joseph Haydn wrote that posterity will not see such a talent again in 100 years.
+                </textarea>
+                <br/>
+                <button class="btn btn-primary" onclick="analyze_text()">Analyze text</button>
+                <hr/>
+                <p>
+                    <img src="test.jpg" width="300" style="float:right;margin:5px">
+                    In this culture of copy and remix, this small app uses a search engine (Bing) to check each sentence
+                    and compute a 'copy' score at a sentence and text
+                    level.
+
+                <p>strategy to query the search engine:
+                <ul class="unstyled">
+                    <li><input type="radio" name="strategy" value="quote"/>Exact sentence as query (=with quotes)</li>
+                    <li><input type="radio" name="strategy" value="noquote" />sentence as query (=without quotes)</li>
+                    <li><input type="radio" name="strategy" value="fuzzy" checked="true"/>fuzzy matching (<a
+                            href="http://en.wikipedia.org/wiki/Stop_words">stopwords</a> filtered, remaining words with
+                        quotes)
+                    </li>
+                </ul>
+                </p>
+                <p><span class="label label-info">Note</span> Due to text analysis, <b>only english text</b> is for the moment available.</p>
+                <hr/>
+                <p>Source code: <a href="#">this page </a> (pure javascript) </p>
+                <p>credits: <a href="http://nico.maisonneuve.free.fr"> NM</a></p>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="analysis_container" style="display: none">
+        <div class="span9">
+            <button class="btn btn-primary btn-small" onclick="new_text()">New text</button>
+            <span id="message" style="margin-left:30px;"></span>
+            <div id="analyzed_text" style="margin-top:10px;width:100%;padding:5px" class="well"></div>
+        </div>
+        <div class="span3">
+            <div style="display: none" id="text_info"></div>
+            <h3>Top text sources</h3>
+            <div class="accordion" id="list_sources"></div>
+        </div>
+    </div>
+</div>
+
+<!-- view template -->
+<script id="sourceTemplate2" type="text/x-jsrender">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse_{{:idx}}"
+               title="{{:url}}">
+                Source {{:idx}} ({{:score}}%)
+            </a>
+        </div>
+        <div id="collapse_{{:idx}}" class="accordion-body collapse" style="height: 0px; ">
+            <div class="accordion-inner">
+                <a href="{{:url}}" target="_blank">Go to the source</a>
+                <br/><b>{{:sentences.length}} matching sentence(s):</b>
+                <ul class="unstyled">
+                    {{for sentences}}
+                    <li><a title="{{:sentence}}" href="#">original sentence</a> vs. <a href="#"
+                                                                                       title="{{:content}}">found</a>
+                        ({{:score*100}}%)
+                    </li>
+                    {{/for}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="sentenceInfoTemplate" type="text/x-jsrender">
+    <h3>Top sentence sources</h3>
+    <ul class="unstyled">
+        {{for best_sources}}
+        <li>
+            <p><a href="{{:url}}">Source ({{:score*100}}%)</a>
+                <br/>
+                <small>{{:content}}</small>
+            </p>
+        </li>
+        {{/for}}
+    </ul>
+</script>
+
+<script src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+<script src='inheritance.js'></script>
+<script src='http://borismoore.github.com/jsrender/jsrender.js'></script>
+<script src='http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js'></script>
+<script src='http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js'></script>
+<script src='http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js'></script>
+<script src='model.js'></script>
+<script src='stopwords.js'></script>
+<script src='copymeter.js'></script>
+</body>
+</html>

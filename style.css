@@ -1,0 +1,22 @@
+#analyzed_text {
+    background: white;
+    padding: 1em 1em;
+    color: #444;
+    font: 14px/0.1 Garamond, "Baskerville", "Times New-Roman", Times, serif;
+    line-height: 1.2em;
+}
+
+.sentence {
+    color: #000000;
+    font-size: 14px;
+}
+
+.sentence a:hover {
+    border-right: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+}
+
+@font-face {
+    font-family: 'Square';
+    src: url('square.ttf') format('truetype');
+}
