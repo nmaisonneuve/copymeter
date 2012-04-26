@@ -7,7 +7,8 @@ write_result = function (sentence) {
     var score = sentence.best_score;
     var color = (score == -1) ? "#777" : "hsl(" + (100 - (score * 100 - 20) * 100 / 80) + ", 70%, 80%)"
     $("#sentence_" + idx).css('background', color);
-    $("#sentence_" + idx).click(function () {
+    $("#sentence_" + idx).click(function (event) {
+        event.preventDefault();
         score = Math.round(score * 100) + "%";
 
         var sources = sentence.copies.slice(0, Math.min(5, sentence.copies.length));
